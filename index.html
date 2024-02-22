@@ -4,131 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floating Image</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica', sans-serif;
+            background: rgb(26, 188, 156);
+            background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+            background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+            background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 80%; /* Adjust the width as needed */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            max-width: 800px; /* Added maximum width for responsiveness */
+        }
+
+        h1 {
+            font-size: 36px; /* Increased font size */
+            margin: 10px 0 0 0;
+            font-weight: lighter;
+            text-transform: uppercase;
+            color: #eeeeee;
+        }
+
+        p {
+            font-size: 18px; /* Increased font size */
+            font-weight: light;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+
+        .avatar {
+            width: 400px; /* Increased width of the avatar */
+            height: 400px; /* Increased height of the avatar */
+            box-sizing: border-box;
+            border: 5px white solid;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+            transform: translateY(0px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes float {
+            0% {
+                box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+                transform: translateY(0px);
+            }
+            50% {
+                box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+                transform: translateY(-20px);
+            }
+            100% {
+                box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+                transform: translateY(0px);
+            }
+        }
+
+        .support-me {
+            display: inline-block;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 20vw;
+            max-width: 250px;
+            min-width: 200px;
+            z-index: 9;
+        }
+
+        .support-me img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
-<style>
-    body,
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'Helvetica', sans-serif;
-  background: rgb(26, 188, 156);
-  background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
-  background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
-  background: linear-gradient(135deg, rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
-}
-
-h1 {
-  font-size: 24px;
-  margin: 10px 0 0 0;
-  font-weight: lighter;
-  text-transform: uppercase;
-  color: #eeeeee;
-}
-
-p {
-  font-size: 12px;
-  font-weight: light;
-  color: #333333;
-}
-
-span a {
-  font-size: 18px;
-  color: #cccccc;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: all 0.4s ease-in-out;
-  &:hover {
-    color: #ffffff;
-  }
-}
-
-@keyframes float {
-  0% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translatey(0px);
-  }
-  50% {
-    box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-    transform: translatey(-20px);
-  }
-  100% {
-    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-    transform: translatey(0px);
-  }
-}
-
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.avatar {
-  width: 150px;
-  height: 150px;
-  box-sizing: border-box;
-  border: 5px white solid;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-  transform: translatey(0px);
-  animation: float 6s ease-in-out infinite;
-  img { width: 100%; height: auto; }
-}
-
-.content {
-  width: 100%;
-  max-width: 600px;
-  padding: 20px 40px;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-.suppoprt-me {
-  display: inline-block;
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  width: 20vw;
-  max-width: 250px;
-  min-width: 200px;
-  z-index: 9;
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
-.profile-info {
-    flex: 1;
-  }
-
-  .profile-info h1 {
-    font-size: 24px;
-    margin: 0;
-  }
-
-  .profile-info p {
-    margin: 5px 0;
-    color: #586069;
-  }
-</style>
 <body>
     <div class="container">
         <div class="avatar">
-          <a href="https://codepen.io/MarioDesigns/">
-            <img src="b1.jpg" alt="Skytsunami" />
-          </a>
+                <img src="b1.jpg" alt="Skytsunami" />
         </div>
-        <div class="profile-info">
-            <h1>John Doe</h1>
-            <p>@johndoe</p>
-            <p>Software Engineer</p>
-            <p>Location: San Francisco, CA</p>
-          </div>
-     </div>
+        <h1>Amisha Ninawe</h1>
+        <p>amishaninawe971@gmail.com</p>
+        <p>👨‍💻 Full-stack Web Developer</p>
+        <p>Location: Asterisc Technocrat Nagpur,India</p>
+    </div>
 </body>
 </html>
